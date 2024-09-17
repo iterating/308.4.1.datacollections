@@ -50,15 +50,18 @@ csvLabeled.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "2
 // { id: "7", name: "Bilbo", occupation: "None", age: "111" }
 csvLabeled.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" })
 // Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group. This calculation should be accomplished using a loop.
+function csvToAge(input){
 let cumulativeAge = 0;
 let allNames = ''
-_name = []
-for (let i = 0; i < csvLabeled.length; i++) {
-    cumulativeAge += Number(csvLabeled[i].age);
-    _name.push(csvLabeled[i].name)
-    console.log(cumulativeAge)
+let _name = []
+for (let i = 0; i < input.length; i++) {
+    cumulativeAge += Number(input[i].age);
+    _name.push(input[i].name)
 }
 allNames = _name.join(", ")
-let averageAge = cumulativeAge / csvLabeled.length;
+let averageAge = cumulativeAge / input.length;
 
-console.log(`Average age of ${allNames} is ${averageAge} years old.`)
+console.log(`Average age of ${allNames} is ${averageAge} years old`)
+}
+
+csvToAge(csvLabeled)
