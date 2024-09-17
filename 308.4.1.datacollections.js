@@ -22,7 +22,7 @@ function csvToArray(input) {
 console.log(csvToArray(csvData));
 csvArray = csvToArray(csvData);
 
-// Pt3
+// Pt3 Array of Objects
 function labelColumns(input) {
   try {
     let headers = input[0].map((header) => header.toLowerCase());
@@ -57,7 +57,7 @@ csvLabeled = labelColumns([
 ]);
 console.log(csvLabeled);
 
-//Pt 4
+//Pt 4 Sorting and Manipulating Data
 // Remove the last element from the sorted array.
 csvLabeled.pop();
 // Insert the following object at index 1:
@@ -76,10 +76,10 @@ function csvToAge(input) {
   let cumulativeAge = 0;
   let allNames = "";
   let _name = [];
-  for (let i = 0; i < input.length; i++) {
-    cumulativeAge += Number(input[i].age);
-    _name.push(input[i].name);
-  }
+  input.forEach((row)=> {
+    cumulativeAge += Number(row.age);
+    _name.push(row.name);
+  })
   allNames = _name.join(", ");
   let averageAge = cumulativeAge / input.length;
 
